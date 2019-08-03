@@ -21,7 +21,13 @@ fun main(args: Array<String>) {
 //    }
 //    println()
 
-    iterateMap()
+//    // 02 迭代map中的元素
+//    iterateMap()
+      // 03 使用 ‘in’ 判读集合区间成员
+    val testChar  = 'c'
+    println("$testChar is letter: ${isLetter('c')}")
+    println("$testChar is not digit: ${isNotDigit('c')}")
+    println(recognize('!'))
 }
 
 
@@ -61,5 +67,16 @@ fun iterateMap() {
     for((index, element) in aList.withIndex()){
         println("$index : $element")
     }
-
 }
+
+// 2.4.2 使用“in"来检查集合和区间成员
+// 底层并未有特殊的处理： 同样是比较区间中的第一个及最后一个元素，不过是将其封装在区间类中
+fun isLetter(c: Char) = c in 'a'..'z' || c in 'A'..'Z'
+fun isNotDigit(c: Char) =  c !in '0'..'9'
+// in 与 ！in 适用于when中
+fun recognize(c: Char) = when (c){
+    in 'a'..'z' -> "It's a letter"
+    in '1'..'9' -> "It's a digit"
+    else        -> "I don't know"
+}
+
