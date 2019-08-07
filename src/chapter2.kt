@@ -105,16 +105,25 @@ fun recognize(c: Char) = when (c){
 //        c. 字符串中含有$符号必须使用\进行转义
 //        d. 与字符串拼接的效率一样，编译后的代码创建一个StringBuilder对象，将常量及变量附加上去
 //        e. 如$符号尝试引用一个不存在的变量，编译不通过
-4、类和属性
-    1> 属性
-            a. kotlin中，public 是默认的可见性，可以省略
-            b. 属性（字段和其访问器的组合）是头等的语言特性，完全替代了字段和访问器方法
-            c. 属性的声明与变量的声明一致，使用 val 和 var 关键字，前者只读（只有getter），后者可变（setter 和 getter）
-            d. java 中调用相应字段访问器时，为get/set+字段名（name: get/setName）(如果以is开头的属性，getter不会增加任何前缀，而setter将is改为set)
-                    反之，java中定义了，setter 和 getter（或is___ 和 set___） 则定义为var属性在kotlin中调用，而只有getter则当成val属性进行访问
-            e. 可以直接访问属性，而无需通过访问器
-            f. 属性有一个支持的字段来保存属性值，如果这个值为即时计算——根据其他属性值计算，可用自定义的getter来实现:
-                // 声明属性的getter， java中仍使用对应的getter方法来访问
-                val a: Boolean
-                    get() = ...
-
+//4、类和属性
+//    1> 属性
+//            a. kotlin中，public 是默认的可见性，可以省略
+//            b. 属性（字段和其访问器的组合）是头等的语言特性，完全替代了字段和访问器方法
+//            c. 属性的声明与变量的声明一致，使用 val 和 var 关键字，前者只读（只有getter），后者可变（setter 和 getter）
+//            d. java 中调用相应字段访问器时，为get/set+字段名（name: get/setName）(如果以is开头的属性，getter不会增加任何前缀，而setter将is改为set)
+//                    反之，java中定义了，setter 和 getter（或is___ 和 set___） 则定义为var属性在kotlin中调用，而只有getter则当成val属性进行访问
+//            e. 可以直接访问属性，而无需通过访问器
+//            f. 属性有一个支持的字段来保存属性值，如果这个值为即时计算——根据其他属性值计算，可用自定义的getter来实现:
+//                // 声明属性的getter， java中仍使用对应的getter方法来访问
+//                val a: Boolean
+//                    get() = ...
+//5、 kotlin源码布局： 目录和包：
+//    a. 有着和Java一样的包管理，kotlin文件都能以package开头，文件中的所有声明（类、函数及属性）都会被放在这个包中，如果其他文件也声明同样的包，则这
+//        个文件可以直接引用它。如果包声明不同，则需要通过import语句进行导入，导入不区分类还是函数，也可以使用.*导入包中所有的声明
+//    b. Java中，必须将类放在和包结构相匹配的文件和目录结构中。kotlin中，可以将多个类放在同一个文件中，文件的名字随意选择，对于磁盘中源文件的布局也没有
+//        限制。
+// 2.5 kotlin 中的异常
+// 1. kotlin 中不区分unchecked and checked exception, 可以处理异常也可以不处理异常
+// throw 是一个表达式
+// 没有throws子句，函数签名不抛出异常
+// try catch 是一个表达式，可以将其赋值给变量，对于多语句场景，同样是最后一个语句的值为返回值
