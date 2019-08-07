@@ -80,3 +80,20 @@ fun recognize(c: Char) = when (c){
     else        -> "I don't know"
 }
 
+// 2.5 kotlin 中的异常
+// 1. kotlin 中不区分unchecked and checked exception, 可以处理异常也可以不处理异常
+// throw 是一个表达式
+// 没有throws子句，函数签名不抛出异常
+// try catch 是一个表达式，可以将其赋值给变量，对于多语句场景，同样是最后一个语句的值为返回值
+
+// summary
+1. 函数
+        a. fun(fun关键字) max函数名(a: Int参数列表): Int返回值列表{
+            函数体
+        }
+        b. 函数体书写方法
+            1> 函数体写在括号中： 代码块体(不能省略返回值类型及return语句)
+            2> 直接返回一个表达式： 表达式体（若返回值的类型是显式的，可以省略返回值
+        c.
+2. 变量
+        a. 关键字（var（可变引用）, val（不可变引用，相当于Java中的final关键字，指向的对象是可变的）) a(变量名称)：Int(变量类型，可省略，省略时必须初始化)
