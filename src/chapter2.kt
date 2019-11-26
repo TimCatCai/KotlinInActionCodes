@@ -24,10 +24,12 @@ fun main(args: Array<String>) {
 //    // 02 迭代map中的元素
 //    iterateMap()
       // 03 使用 ‘in’ 判读集合区间成员
-    val testChar  = 'c'
-    println("$testChar is letter: ${isLetter('c')}")
-    println("$testChar is not digit: ${isNotDigit('c')}")
-    println(recognize('!'))
+//    val testChar  = 'c'
+//    println("$testChar is letter: ${isLetter('c')}")
+//    println("$testChar is not digit: ${isNotDigit('c')}")
+//    println(recognize('!'))
+
+
 }
 
 
@@ -100,11 +102,29 @@ fun recognize(c: Char) = when (c){
 //        b.var 本身的值可以改变，但是类型却不能改变
 //        c. val 在保证值唯一的条件下，可以根据条件进行初始化
 //3、字符串模板
-//        a. 只有一个变量可以省略花括号
-//        b. 表达式不能省略花括号，可以内嵌双引号
-//        c. 字符串中含有$符号必须使用\进行转义
-//        d. 与字符串拼接的效率一样，编译后的代码创建一个StringBuilder对象，将常量及变量附加上去
-//        e. 如$符号尝试引用一个不存在的变量，编译不通过
+//  > 含义：允许在字符串字面值中引用局部变量
+//  > 原理：与字符串拼接的效率一样，编译后的代码创建一个StringBuilder对象，将常量及变量附加上去
+//  > 如$符号尝试引用一个不存在的变量，编译不通过
+//  > 字符串中含有$符号必须使用\进行转义
+//    println("Total: \$500")
+
+//  > 只有一个变量可以省略花括
+//    var a  = 1
+//    val b = 2
+//    var name = "hello world: $a"
+//    println(name)
+//  > 表达式不能省略花括号，可以内嵌双引号
+//    println("a + b = ${a + b}")
+//    val list = arrayListOf<Int>(1, 2, 3)
+//    // 这里的输出是list[0] = [1, 2, 3][0], 而不是list[0] = 1
+//    println("list[0] = $list[0]")
+//    // 正确书写方式
+//    println("list[0] = ${list[0]}")
+//
+//    println("hello ${"world"}")
+//    // 不同类型的变量不能进行拼接
+//    println("a + b = ${a + b + " hello"} ")
+//    var c: String = a + b + " hello"
 //4、类和属性
 //    1> 属性
 //            a. kotlin中，public 是默认的可见性，可以省略
